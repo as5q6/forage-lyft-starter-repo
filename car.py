@@ -12,3 +12,7 @@ class Car(ABC):
     @abstractmethod
     def engine_should_be_serviced(self):
         pass
+
+    @abstractmethod
+    def tires_need_service(self, tire_wear):
+        pass

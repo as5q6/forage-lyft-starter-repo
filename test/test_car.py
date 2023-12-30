@@ -15,6 +15,18 @@ class TestCalliope(unittest.TestCase):
         self.last_service_mileage = 0
         self.car = Calliope(self.today, self.current_mileage, self.last_service_mileage)
 
+    def test_spindler_battery_service(self):
+        self.car.last_service_date = self.today.replace(year=self.today.year - 3)
+        self.assertTrue(self.car.needs_service())
+
+    def test_carrigan_tire_service(self):
+        self.car.tire_wear = [0.9, 0.8, 0.7, 0.6]
+        self.assertTrue(self.car.tires_need_service())
+
+    def test_octoprime_tire_service(self):
+        self.car.tire_wear = [0.8, 0.8, 0.8, 0.8]
+        self.assertTrue(self.car.tires_need_service())
+
     def test_battery_should_be_serviced(self):
         self.car.last_service_date = self.today.replace(year=self.today.year - 3)
         self.assertTrue(self.car.needs_service())
