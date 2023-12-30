@@ -8,3 +8,7 @@ class Car(ABC):
     @abstractmethod
     def needs_service(self):
         pass
+
+    @abstractmethod
+    def engine_should_be_serviced(self):
+        pass
